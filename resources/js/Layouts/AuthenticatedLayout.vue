@@ -8,7 +8,6 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/vue3';
 import AdminLayout from '@/Layouts/AdminLayout.vue';
 const showingNavigationDropdown = ref(false);
-const isAdmin = computed(() => $page.props.auth.user.role === 'admin');
 </script>
 <template>
     <div>
@@ -32,20 +31,6 @@ const isAdmin = computed(() => $page.props.auth.user.role === 'admin');
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </NavLink>
-                                <template v-if="isAdmin">
-                                    <NavLink :href="route('admin.dashboard')" :active="route().current('admin.dashboard')">
-                                        Admin Dashboard
-                                    </NavLink>
-                                    <NavLink :href="route('admin.projects')" :active="route().current('admin.projects')">
-                                        Projects
-                                    </NavLink>
-                                    <NavLink :href="route('admin.createProject')" :active="route().current('admin.createProject')">
-                                        Create Project
-                                    </NavLink>
-                                    <NavLink :href="route('admin.overview')" :active="route().current('admin.overview')">
-                                        Overview
-                                    </NavLink>
-                                </template>
                             </div>
                         </div>
 
@@ -129,21 +114,6 @@ const isAdmin = computed(() => $page.props.auth.user.role === 'admin');
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
                         </ResponsiveNavLink>
-                        <template v-if="isAdmin">
-                            <ResponsiveNavLink :href="route('admin.dashboard')" :active="route().current('admin.dashboard')">
-                                Admin Dashboard
-                            </ResponsiveNavLink>
-                            <ResponsiveNavLink :href="route('admin.projects')" :active="route().current('admin.projects')">
-                                Projects
-                            </ResponsiveNavLink>
-                            <ResponsiveNavLink :href="route('admin.createProject')" :active="route().current('admin.createProject')">
-                                Create Project
-                            </ResponsiveNavLink>
-                            <ResponsiveNavLink :href="route('admin.overview')" :active="route().current('admin.overview')">
-                                Overview
-                            </ResponsiveNavLink>
-                        </template>
-
                     </div>
 
                     <!-- Responsive Settings Options -->

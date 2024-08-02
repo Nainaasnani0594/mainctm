@@ -33,12 +33,12 @@ Route::get('/admin/register', [RegisteredUserController::class, 'create'])->name
 Route::post('/admin/register', [RegisteredUserController::class, 'store'])->name('admin.register.post');
 
 // Dashboard route
-Route::get('/dashboard', function () {
+Route::get('/admin/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Admin Dashboard routes
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth','admin'])->group(function () {
     // Route::get('/admin/dashboard', function () {
     //     return Inertia::render('Admin/Dashboard');
     // })->name('admin.dashboard');
