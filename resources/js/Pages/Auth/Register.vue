@@ -11,6 +11,7 @@ const form = useForm({
     email: '',
     password: '',
     password_confirmation: '',
+    role:'',
 });
 
 const submit = () => {
@@ -85,6 +86,22 @@ const submit = () => {
 
                 <InputError class="mt-2" :message="form.errors.password_confirmation" />
             </div>
+
+            <div class="mt-4">
+                <InputLabel for="role" value="Role" />
+
+                <TextInput
+                    id="role"
+                    type="text"
+                    class="mt-1 block w-full"
+                    v-model="form.role"
+                    required
+                    autocomplete="role"
+                />
+
+                <InputError class="mt-2" :message="form.errors.role" />
+            </div>
+
 
             <div class="flex items-center justify-end mt-4">
                 <Link
